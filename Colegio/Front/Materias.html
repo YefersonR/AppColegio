@@ -5,55 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" type="text/css" href="ccs/bootstrap.min.ccs">
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery:jquery-3.4.1.min.js"></script>
-    <title>Document</title>
+    <title>Materias</title>
 </head>
 <body>
     <center>
-    <h1>Materia</h1>
-    
-    <form id="agregar">
+
+    <div class="container">
+    <form id="agregar" action="" method="post">
+        <h1>Materia</h1>
+        <fieldset>
         <input type="hidden" value="" name="Id" Id="Id">
+        </fieldset>
+        <fieldset>
+        <input placeholder="IDCurso" type="text" name="idcurso" id="idcurso">
         
-        <label>IdCurso:</label>
-        <input type="text" name="idcurso" id="idcurso">
+        </fieldset>
+        <fieldset>
+        <input placeholder="Profesor" type="text" name="profesor" id="profesor">
+        </fieldset>
+
+        <fieldset>
+        <input placeholder="Materia" type="text" name="materia" id="materia">
+        </fieldset>
+        <fieldset>
+        <input placeholder="Horario" type="text" name="horario" id="horario">
+        </fieldset>
         <br>
-        <label>Profesor:</label>
-        <input type="text" name="profesor" id="profesor">
-        <br>
-        <label>Nombre Materia:</label>
-        <input type="text" name="materia" id="materia">
-        <br>
-        <label>Horario:</label>
-        <input type="text" name="horario" id="horario">
+        <input name="Submit" type="button" value="Guardar" onclick="Guardar();">
+
+</form>
+
+<div class="container">
+    <div class="letra">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">IDMateria</div>
+        <div class="col col-2">IDCurso</div>
+        <div class="col col-3">Profesor</div>
+        <div class="col col-4">Materia</div>
+        <div class="col col-5">Horario</div>
         
-        <br>
+      </li>
+    </ul>
+</div>    
+</div>
 
-        <input type="button"  class="btn btn-secundary" value="Guardar" onclick="Guardar();">
-    </form>
-    <br>
-    <br>
-    <thead>
-        <tr>
-            <b>
-            <th>IDMateria--</th>
-            <th>IDCurso--</th>
-            <th>Profesor--</th>
-            <th>Materia--</th>
-            <th>Horario</th>
-            </b>
-        </tr>
-    </thead>
-    </center>
-    
-
-    <hr>
-   <center
+  
     <div id = "ListaMaterias"></div>
-    <center>
+   
+    </center>
 
+ 
 </body>
 </html>
 
@@ -95,6 +97,7 @@ function Get(){
                     boton.target.mihorario                 
                     );
             })
+            
             divElement.appendChild(divSpan);
             divElement.appendChild(divButtonEliminar)
             divElement.appendChild(divButtonEditar)
@@ -200,6 +203,189 @@ function modificar(){
 
 </script>
 
-<style type="diseño/ccs">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.letra{
+color:#FFF;
+}
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: rgb(43, 185, 214);
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#agregar input[type="text"],
+#agregar input[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#agregar {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#agregar h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#agregar h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#agregar input[type="text"],
+#agregar textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#agregar input[type="text"]:hover,
+#agregar textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#agregar textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#agregar button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#agregar button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#agregar button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#agregar input:focus,
+#agregar textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+/*Tabla*/
+
+body {
+  font-family: 'lato', sans-serif;
+}
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.responsive-table li {
+
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.table-header {
+    background-color: #95A5A6;
+    font-size :14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+} 
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+  }
+  .col-1 {
+    flex-basis: 10%;
+  }
+  .col-2 {
+    flex-basis: 40%;
+  }
+  .col-3 {
+    flex-basis: 25%;
+  }
+  .col-4 {
+    flex-basis: 25%;
+  }
+  .col-5 {
+    flex-basis: 25%;
+  }
+
 
 </style>
