@@ -12,3 +12,17 @@ C:\Users\hp\Desktop\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.Raz
 C:\Users\hp\Desktop\AppColegio\AppColegio\bin\Debug\netcoreapp2.1\AppColegio.pdb
 C:\Users\hp\Desktop\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.dll
 C:\Users\hp\Desktop\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.pdb
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\bin\Debug\netcoreapp2.1\AppColegio.deps.json
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\bin\Debug\netcoreapp2.1\AppColegio.runtimeconfig.json
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\bin\Debug\netcoreapp2.1\AppColegio.runtimeconfig.dev.json
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\bin\Debug\netcoreapp2.1\AppColegio.dll
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\bin\Debug\netcoreapp2.1\AppColegio.pdb
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.csprojAssemblyReference.cache
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.RazorAssemblyInfo.cache
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.RazorAssemblyInfo.cs
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.AssemblyInfoInputs.cache
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.AssemblyInfo.cs
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.RazorTargetAssemblyInfo.cache
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.dll
+C:\Users\hp\Desktop\ColegioApp\Colegio\AppColegio\AppColegio\obj\Debug\netcoreapp2.1\AppColegio.pdb

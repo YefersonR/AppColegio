@@ -12544,11 +12544,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\AppColegio\\AppColegio\\AppColegio.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\ColegioApp\\Colegio\\AppColegio\\AppColegio\\AppColegio.csproj",
       "projectName": "AppColegio",
-      "projectPath": "C:\\Users\\hp\\Desktop\\AppColegio\\AppColegio\\AppColegio.csproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\ColegioApp\\Colegio\\AppColegio\\AppColegio\\AppColegio.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\AppColegio\\AppColegio\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\ColegioApp\\Colegio\\AppColegio\\AppColegio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<center>
     <h1>Alumnos</h1>
     <form id="agregar">
         <input type="hidden" value="" name="Id" Id="Id">
@@ -26,10 +27,25 @@
         <label>Direccion:</label>
         <input type="text" name="direccion" id="direccion">
         <br>
-        <input type="button" value="Guardar" onclick="Guardar();">
+        <input type="button"  class="btn btn-secundary" value="Guardar" onclick="Guardar();">
     </form>
+    <br>
+    <br>
+    <thead>
+        <tr>
+            <b>
+            <th>IDAlumno--</th>
+            <th>IDCurso--</th>
+            <th>Nombre--</th>
+            <th>Edad--</th>
+            <th>Telefono--</th>
+            <th>Direccion</th>
+            </b>
+        </tr>
+    </thead>
     <hr>
     <div id = "ListaAlumno"></div>
+<center>
 </body>
 </html>
 
@@ -50,7 +66,7 @@ function Get(){
             let divButtonEditar = document.createElement("button");
             let divButtonEliminar = document.createElement("button");
             
-            divElement.innerHTML = Data[i].idalumno+"-"+Data[i].idcurso+"-"+Data[i].nombre+"-"+Data[i].edad+"-"+Data[i].telefono,+"-"+Data[i].direccion;
+            divElement.innerHTML = Data[i].idalumno+"---"+Data[i].idcurso+"---"+Data[i].nombre+"---"+Data[i].edad+"---"+Data[i].direccion+"---"+Data[i].telefono;
             divButtonEliminar.innerHTML = "Eliminar";
             divButtonEditar.innerHTML = "Editar";
             divButtonEliminar.miidalumno=Data[i].idalumno;

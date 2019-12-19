@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="ccs/bootstrap.min.ccs">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery:jquery-3.4.1.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <center>
     <h1>Materia</h1>
     
     <form id="agregar">
@@ -25,13 +30,33 @@
         <input type="text" name="horario" id="horario">
         
         <br>
-        <input type="button" value="Guardar" onclick="Guardar();">
+
+        <input type="button"  class="btn btn-secundary" value="Guardar" onclick="Guardar();">
     </form>
+    <br>
+    <br>
+    <thead>
+        <tr>
+            <b>
+            <th>IDMateria--</th>
+            <th>IDCurso--</th>
+            <th>Profesor--</th>
+            <th>Materia--</th>
+            <th>Horario</th>
+            </b>
+        </tr>
+    </thead>
+    </center>
+    
 
     <hr>
+   <center
     <div id = "ListaMaterias"></div>
+    <center>
+
 </body>
 </html>
+
 
 <script>
 var urlmateria = "https://localhost:44356/api/materia";
@@ -50,7 +75,7 @@ function Get(){
             let divButtonEditar = document.createElement("button");
             let divButtonEliminar = document.createElement("button");
             
-            divElement.innerHTML =Data[i].idmaterias+"-"+Data[i].idcurso+"-"+Data[i].profesor+"-"+Data[i].nombreMateria+"-"+Data[i].horario;
+            divElement.innerHTML =Data[i].idmaterias+"---"+Data[i].idcurso+"---"+Data[i].profesor+"---"+Data[i].nombreMateria+"---"+Data[i].horario;
             divButtonEliminar.innerHTML = "Eliminar";
             divButtonEditar.innerHTML = "Editar";
             divButtonEliminar.miidmateria=Data[i].idmaterias;

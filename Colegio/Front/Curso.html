@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <center>
+   
     <h1>Cursos</h1>
     <form id="agregar">
         <input type="hidden" value="" name="Id" Id="Id">
@@ -17,10 +19,24 @@
         <label>Seccion:</label>
         <input type="text" name="Seccion" id="seccion">
         <br>
-        <input type="button" value="Guardar" onclick="Guardar();">
+        <input type="button"  class="btn btn-secundary" value="Guardar" onclick="Guardar();">
     </form>
+    <br>
+    <br>
+    <thead>
+        <tr>
+            <b>
+            <th>IDCurso--</th>
+            <th>Nombre--</th>
+            <th>Seccion</th>
+            </b>
+        </tr>
+    </thead>
+
+    
     <hr>
     <div id = "ListaCursos"></div>
+</center>
 </body>
 </html>
 
@@ -41,7 +57,7 @@ function Get(){
             let divButtonEditar = document.createElement("button");
             let divButtonEliminar = document.createElement("button");
             
-            divElement.innerHTML = Data[i].idcurso+"-"+Data[i].nombre+"-"+Data[i].seccion;
+            divElement.innerHTML = Data[i].idcurso+"----"+Data[i].nombre+"----"+Data[i].seccion;
             divButtonEliminar.innerHTML = "Eliminar";
             divButtonEditar.innerHTML = "Editar";
             divButtonEliminar.miidcurso=Data[i].idcurso;
