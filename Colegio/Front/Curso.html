@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cursos</h1>
+    <form id="agregar">
+        <input type="hidden" value="" name="Id" Id="Id">
+        
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" id="nombre">
+        <br>
+        <label>Seccion:</label>
+        <input type="text" name="Seccion" id="seccion">
+        <br>
+        <input type="button" value="Guardar" onclick="Guardar();">
+    </form>
+    <hr>
+    <div id = "ListaCursos"></div>
+</body>
+</html>
+
+<script>
+var urlcurso = "https://localhost:44356/api/Curso";
+
+Get();
+
+
+function Get(){
+        fetch(urlcurso).then(function(response){
+            return response.json();
+        }).then(function(Data){
+        document.getElementById("ListaCursos").innerHTML="";
+        for(i=0;i<Data.length;i++){
+            let divElement = document.createElement("div");
+            let divSpan = document.createElement("span");
+            let divButtonEditar = document.createElement("button");
+            let divButtonEliminar = document.createElement("button");
+            
+            divElement.innerHTML = Data[i].idcurso+"-"+Data[i].nombre+"-"+Data[i].seccion;
+            divButtonEliminar.innerHTML = "Eliminar";
+            divButtonEditar.innerHTML = "Editar";
+            divButtonEliminar.miidcurso=Data[i].idcurso;
+            divButtonEliminar.addEventListener("click",function(boton){
+                Eliminar(boton.target.miidcurso);
+            })
+            divButtonEditar.miidcurso=Data[i].idcurso;
+            divButtonEditar.minombre=Data[i].nombre;
+            divButtonEditar.miseccion=Data[i].seccion;
+            
+            divButtonEditar.addEventListener("click",function(boton){
+                Editar(
+                    boton.target.miidcurso,
+                    boton.target.minombre,
+                    boton.target.miseccion                 
+                    );
+            })
+            divElement.appendChild(divSpan);
+            divElement.appendChild(divButtonEliminar)
+            divElement.appendChild(divButtonEditar)
+            document.getElementById("ListaCursos").appendChild(divElement);
+        }})
+}
+
+
+function Guardar(){
+    if(document.getElementById("Id").value!=""){
+        modificar();
+    }else{
+        Post();
+    }
+}
+function Post(){
+    fetch(urlcurso, {
+        method:"POST",
+        body:JSON.stringify({
+            nombre:document.getElementById("nombre").value,
+            seccion:document.getElementById("seccion").value,
+        }),
+        headers:{
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+    }).then(function(response){
+        if (response.ok){
+            return response.text();
+        }else{
+            alert("Error al ejecutar solicitud");
+        }
+    }).then(function(Data){
+        console.log(Data);
+        Get();  
+        document.getElementById("nombre").value="";
+        document.getElementById("seccion").value="";
+    })
+}
+
+function Eliminar(idcurso){
+    fetch(urlcurso, {
+        method:"DELETE",
+        body:JSON.stringify({
+            idcurso:idcurso,
+        }),
+        headers:{
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+    }).then(function(response){
+        if (response.ok){
+            return response.text();
+        }else{
+            alert("Error al ejecutar solicitud");
+        }
+    }).then(function(Data){
+        console.log(Data);
+        Get();
+    })
+}
+function Editar(id,nombre,seccion){
+document.getElementById("Id").value=id;
+document.getElementById("nombre").value=nombre;
+document.getElementById("seccion").value=seccion;
+}
+function modificar(){
+    fetch(urlcurso, {
+        method:"PUT",
+        body:JSON.stringify({
+            idcurso:document.getElementById("Id").value,
+            nombre:document.getElementById("nombre").value,
+            seccion:document.getElementById("seccion").value,
+        }),
+        headers:{
+            'Accept':"application/json",
+            "Content-Type":"application/json"        
+        }
+    }).then(function(response){
+        if (response.ok){
+            return response.text();
+        }else{
+            alert("Error al ejecutar solicitud");
+        }
+    }).then(function(Data){
+        console.log(Data);
+        Get();
+        document.getElementById("Id").value="";
+        document.getElementById("nombre").value="";
+        document.getElementById("seccion").value="";
+
+    })
+
+}
+
+</script>
+
+<style type="diseño/ccs">
+
+</style>

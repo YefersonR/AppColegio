@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Alumnos</h1>
+    <form id="agregar">
+        <input type="hidden" value="" name="Id" Id="Id">
+        
+        <label>IdCurso:</label>
+        <input type="text" name="idcurso" id="idcurso">
+        <br>
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre">
+        <br>
+        <label>Edad:</label>
+        <input type="text" name="edad" id="edad">
+        <br>
+        <label>Telefono:</label>
+        <input type="text" name="telefono" id="telefono">
+        <br>
+        <label>Direccion:</label>
+        <input type="text" name="direccion" id="direccion">
+        <br>
+        <input type="button" value="Guardar" onclick="Guardar();">
+    </form>
+    <hr>
+    <div id = "ListaAlumno"></div>
+</body>
+</html>
+
+<script>
+var urlalumno = "https://localhost:44356/api/Alumno";
+
+Get();
+
+
+function Get(){
+        fetch(urlalumno).then(function(response){
+            return response.json();
+        }).then(function(Data){
+        document.getElementById("ListaAlumno").innerHTML="";
+        for(i=0;i<Data.length;i++){
+            let divElement = document.createElement("div");
+            let divSpan = document.createElement("span");
+            let divButtonEditar = document.createElement("button");
+            let divButtonEliminar = document.createElement("button");
+            
+            divElement.innerHTML = Data[i].idalumno+"-"+Data[i].idcurso+"-"+Data[i].nombre+"-"+Data[i].edad+"-"+Data[i].telefono,+"-"+Data[i].direccion;
+            divButtonEliminar.innerHTML = "Eliminar";
+            divButtonEditar.innerHTML = "Editar";
+            divButtonEliminar.miidalumno=Data[i].idalumno;
+            divButtonEliminar.addEventListener("click",function(boton){
+                Eliminar(boton.target.miidalumno);
+            })
+            divButtonEditar.miidcurso=Data[i].idcurso;
+            divButtonEditar.minombre=Data[i].nombre;
+            divButtonEditar.miedad=Data[i].edad;
+            divButtonEditar.mitelefono=Data[i].telefono;
+            divButtonEditar.midireccion=Data[i].direccion;
+            
+            divButtonEditar.addEventListener("click",function(boton){
+                Editar(
+                    boton.target.miidcurso,
+                    boton.target.minombre,
+                    boton.target.miedad,
+                    boton.target.mitelefono,
+                    boton.target.midireccion                 
+                    );
+            })
+            divElement.appendChild(divSpan);
+            divElement.appendChild(divButtonEliminar)
+            divElement.appendChild(divButtonEditar)
+            document.getElementById("ListaAlumno").appendChild(divElement);
+        }})
+}
+
+
+function Guardar(){
+    if(document.getElementById("Id").value!=""){
+        modificar();
+    }else{
+        Post();
+    }
+}
+function Post(){
+    fetch(urlalumno, {
+        method:"POST",
+        body:JSON.stringify({
+            idcurso:document.getElementById("idcurso").value,
+            nombre:document.getElementById("nombre").value,
+            edad:document.getElementById("edad").value,
+            telefono:document.getElementById("telefono").value,
+            direccion:document.getElementById("direccion").value,
+        }),
+        headers:{
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+    }).then(function(response){
+        if (response.ok){
+            return response.text();
+        }else{
+            alert("Error al ejecutar solicitud");
+        }
+    }).then(function(Data){
+        console.log(Data);
+        Get();  
+        document.getElementById("idcurso").value="",
+        document.getElementById("nombre").value="",
+        document.getElementById("edad").value="",
+        document.getElementById("telefono").value="",
+        document.getElementById("direccion").value=""
+    })
+}
+
+function Eliminar(idalumno){
+    fetch(urlalumno, {
+        method:"DELETE",
+        body:JSON.stringify({
+            idalumno:idalumno,
+        }),
+        headers:{
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+    }).then(function(response){
+        if (response.ok){
+            return response.text();
+        }else{
+            alert("Error al ejecutar solicitud");
+        }
+    }).then(function(Data){
+        console.log(Data);
+        Get();
+    })
+}
+function Editar(idcurso,nombre,edad,telefono,direccion){
+document.getElementById("idcurso").value=idcurso,
+document.getElementById("nombre").value=nombre,
+document.getElementById("edad").value=edad,
+document.getElementById("telefono").value=telefono,
+document.getElementById("direccion").value=direccion
+
+}
+function modificar(){
+    fetch(urlalumno, {
+        method:"PUT",
+        body:JSON.stringify({
+            idcurso:document.getElementById("Id").value,
+            nombre:document.getElementById("nombre").value,
+            seccion:document.getElementById("seccion").value,
+        }),
+        headers:{
+            'Accept':"application/json",
+            "Content-Type":"application/json"        
+        }
+    }).then(function(response){
+        if (response.ok){
+            return response.text();
+        }else{
+            alert("Error al ejecutar solicitud");
+        }
+    }).then(function(Data){
+        console.log(Data);
+        Get();
+        document.getElementById("Id").value="";
+        document.getElementById("nombre").value="";
+        document.getElementById("seccion").value="";
+
+    })
+
+}
+
+</script>
+
+<style type="diseño/ccs">
+
+</style>
